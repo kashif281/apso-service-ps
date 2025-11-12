@@ -1,0 +1,117 @@
+{
+  "entities": [
+    {
+      "name": "Course",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "Student",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "last_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false,
+          "isUnique": true
+        }
+      ]
+    },
+    {
+      "name": "Assignment",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "deadline",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Instructor",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "last_name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false,
+          "isUnique": true
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Course",
+      "to": "Student",
+      "type": "ManyToMany"
+    },
+    {
+      "from": "Course",
+      "to": "Assignment",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Course",
+      "to": "Instructor",
+      "type": "ManyToOne"
+    },
+    {
+      "from": "Assignment",
+      "to": "Student",
+      "type": "ManyToOne"
+    },
+    {
+      "from": "Instructor",
+      "to": "Course",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
